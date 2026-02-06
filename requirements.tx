@@ -8,3 +8,5 @@ qiskit>=1.0.0
 qiskit-aer>=0.13.0
 qiskit-machine-learning
 pylatexenc
+pandas_datareader
+scipy

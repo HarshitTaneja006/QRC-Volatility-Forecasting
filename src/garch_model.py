@@ -1,21 +1,12 @@
+from arch import arch_model
 import numpy as np
 
-class GARCHModel:
-    """Placeholder for GARCH(1,1) model baseline."""
+def run_garch(train, test):
 
-    def __init__(self, omega=0.0001, alpha=0.1, beta=0.85):
-        self.omega = omega
-        self.alpha = alpha
-        self.beta = beta
+    model = arch_model(train, vol="Garch", p=1, q=1)
+    res = model.fit(disp="off")
 
-    def forecast(self, returns):
-        n = len(returns)
-        sigma2 = np.zeros(n)
-        sigma2[0] = np.var(returns)
+    forecasts = res.forecast(start=len(train)-1, horizon=1)
+    pred = forecasts.variance.values[-len(test):, 0]
 
-        for t in range(1, n):
-            sigma2[t] = (self.omega
-                         + self.alpha * returns[t - 1] ** 2
-                         + self.beta * sigma2[t - 1])
-
-        return np.sqrt(sigma2)
+    return np.sqrt(pred)

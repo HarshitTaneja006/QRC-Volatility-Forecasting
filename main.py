@@ -59,7 +59,13 @@ def main():
     rmse = np.sqrt(mean_squared_error(y_test, predictions))
     
     print(f"S&P 500 RMSE: {rmse:.5f}")
-    
+
+    # --- Feature Expressivity Analysis ---
+    features_array = np.array(X_train_quantum)
+    cov = np.cov(features_array.T)
+    rank = np.linalg.matrix_rank(cov)
+    print(f"Quantum Feature Rank: {rank}")
+
     # Save Figure 3
     plt.figure(figsize=(12, 6))
     plt.plot(y_test[:50], label='Actual Volatility', color='gray', alpha=0.6)

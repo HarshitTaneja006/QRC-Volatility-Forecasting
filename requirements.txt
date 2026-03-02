@@ -1,0 +1,12 @@
+numpy
+pandas
+scikit-learn
+matplotlib
+yfinance
+pandas_datareader
+scipy
+arch
+qiskit
+qiskit-aer
+pyyaml
+tqdm

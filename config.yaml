@@ -1,0 +1,17 @@
+random_seed: 42
+
+window_size: 5
+scale_factor: 80.0
+ridge_alpha: 0.01
+
+train_split: 0.8
+
+data:
+  financial:
+    ticker: SPY
+    start: 2020-01-01
+    end: 2024-01-01
+
+  macro:
+    start: 2000-01-01
+    end: 2024-01-01

@@ -1,0 +1,13 @@
+﻿Hyperparameter,Value,Source
+Number of qubits,5,config.yaml → window_size
+Sliding-window length,5,config.yaml → window_size
+Input scaling factor  S,80.0,config.yaml → scale_factor
+Ridge regularization  α,0.01,config.yaml → ridge_alpha
+Train / test split,80% / 20%,config.yaml → train_split
+Random seed,42,config.yaml → random_seed
+Entanglement topology,Ring CZ (periodic),quantum_reservoir.py
+Readout observable,Pauli-Z expectation ⟨Zᵢ⟩,quantum_reservoir.py
+Regression method,Ridge (scikit-learn),experiment_runner.py
+SPY data ticker,SPY,config.yaml → data.financial
+Data start date,2020-01-01,config.yaml → data.financial
+Data end date,2024-01-01,config.yaml → data.financial

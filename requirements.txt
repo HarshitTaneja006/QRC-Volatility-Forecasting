@@ -10,3 +10,4 @@ qiskit
 qiskit-aer
 pyyaml
 tqdm
+pylatexenc

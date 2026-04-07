@@ -1,0 +1,19 @@
+﻿Statistic,Value
+Ticker,SPY (SPDR S&P 500 ETF Trust)
+Date Range,2020-01-03  →  2023-12-29
+Total Observations (N),"1,005"
+Training Samples,804  (80%)
+Test Samples,201  (20%)
+Mean Daily Return,0.000441
+Std Deviation,0.014315
+Median,0.000841
+Minimum,-0.115886
+Maximum,0.086731
+Skewness,-0.7718
+Excess Kurtosis,11.0723
+Jarque-Bera Statistic,5233.5063
+Jarque-Bera p-value,0.000000
+ADF p-value (returns),0.0000
+Return Type,Log-returns: ln(Pₜ / Pₜ₋₁)
+Normalization,StandardScaler (training set statistics)
+Window Size,5 observations

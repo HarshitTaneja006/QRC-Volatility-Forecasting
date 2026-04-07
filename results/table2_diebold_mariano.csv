@@ -1,0 +1,4 @@
+Dataset,GARCH RMSE,QRC RMSE,GARCH DA,QRC DA,DM Statistic,p-value,Sig. at 5%?
+SPY (Daily Returns),0.27605,0.52772,1.000,1.000,-inf,0.0000,Yes *
+Real GDP Growth (Quarterly),1.55473,1.15120,1.000,1.000,inf,0.0000,Yes *
+Indust. Production (Monthly),0.15618,0.03598,1.000,1.000,inf,0.0000,Yes *

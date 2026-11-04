@@ -4,8 +4,7 @@ Target: *Journal of Forecasting* free-format original research submission.
 
 ## Files in this repository
 
-- `output/q2_submission/anonymous_manuscript_q2.docx`: blinded main manuscript; do not add names, affiliations, acknowledgements, repository URL, or identifying metadata.
-- `output/q2_submission/submission_metadata_template.docx`: author-side checklist and title-page inputs.
+- `output/q2_submission/anonymous_manuscript_q2.docx` and `submission_metadata_template.docx` are generated locally by `helper_scripts/create_q2_submission.py` and are git-ignored. The manuscript is blinded; do not add names, affiliations, acknowledgements, repository URL, or identifying metadata.
 - `main_q2.py` and `config_q2.yaml`: fully reproducible primary study pipeline.
 - `CITATION.cff`: GitHub citation metadata, intentionally author-neutral until author details are supplied.
 

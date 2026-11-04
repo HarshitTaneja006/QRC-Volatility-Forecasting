@@ -214,7 +214,4 @@ __marimo__/
 /data/q2_ohlc/
 /data/spy_ohlc_2005_2025.csv
 /results/
-/output/*
-!/output/q2_submission/
-!/output/q2_submission/anonymous_manuscript_q2.docx
-!/output/q2_submission/submission_metadata_template.docx
+/output/

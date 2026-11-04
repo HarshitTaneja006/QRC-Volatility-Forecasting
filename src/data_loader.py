@@ -57,6 +57,25 @@ def load_spy(start, end):
     returns = np.log(data[price_col] / data[price_col].shift(1))
     return returns.dropna()
 
+
+def load_spy_ohlc(start, end, *, ticker="SPY", downloader=None):
+    """Load validated OHLC prices for range-based volatility construction."""
+    downloader = yf.download if downloader is None else downloader
+    data = downloader(ticker, start=start, end=end, progress=False, auto_adjust=False)
+    if isinstance(data.columns, pd.MultiIndex):
+        data = data.copy()
+        data.columns = data.columns.get_level_values(0)
+    required = ["Open", "High", "Low", "Close"]
+    missing = set(required).difference(data.columns)
+    if missing:
+        raise KeyError(f"{ticker} download missing OHLC columns: {sorted(missing)}")
+    ohlc = data.loc[:, required].apply(pd.to_numeric, errors="coerce").dropna()
+    if ohlc.empty:
+        raise ValueError(f"{ticker} download contains no complete OHLC observations")
+    if (ohlc <= 0).any().any():
+        raise ValueError(f"{ticker} OHLC observations must be strictly positive")
+    return ohlc.sort_index()
+
 def load_gdp(start, end):
     gdp = pd.DataFrame({"GDPC1": _load_fred_series("GDPC1", start, end)})
     # EXACT equation from paper:

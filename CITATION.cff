@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the associated manuscript and software release."
+title: "Quantum Reservoir-Style Volatility Forecasting"
+type: software
+url: "https://github.com/HarshitTaneja006/QRC-Volatility-Forecasting"
+license: MIT
+repository-code: "https://github.com/HarshitTaneja006/QRC-Volatility-Forecasting"
+abstract: "Reproducible nested time-series benchmark of quantum reservoir-style feature maps for range-based volatility forecasting."
+keywords:
+  - quantum reservoir computing
+  - volatility forecasting
+  - Garman-Klass variance
+  - QLIKE
+  - time-series cross-validation
+preferred-citation:
+  type: manuscript
+  title: "Nested Time Series Evidence on Quantum Reservoir Style Feature Maps for Volatility Forecasting"
+  status: in-preparation

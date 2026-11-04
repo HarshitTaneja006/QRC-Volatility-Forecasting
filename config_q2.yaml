@@ -1,0 +1,59 @@
+random_seed: 42
+
+data:
+  start: 2005-01-01
+  end: 2026-01-01
+  cache_dir: data/q2_ohlc
+  assets:
+    SPY: US broad equity
+    QQQ: US growth equity
+    EFA: Developed ex US equity
+    EEM: Emerging market equity
+    TLT: US Treasury bonds
+    GLD: Gold
+    FXE: Euro US dollar
+
+target:
+  type: next_day_garman_klass_variance
+  model_scale: log_variance
+  variance_floor: 1.0e-12
+
+features:
+  lookback: 5
+
+evaluation:
+  initial_train_size: 756
+  refit_every: 252
+  inner_splits: 3
+  inner_validation_size: 126
+  bootstrap_block_length: 20
+  bootstrap_repetitions: 2000
+
+models:
+  ridge_candidates:
+    - {alpha: 0.01}
+    - {alpha: 0.1}
+    - {alpha: 1.0}
+    - {alpha: 10.0}
+  cosine_candidates:
+    - {alpha: 0.1, input_scale: 0.5}
+    - {alpha: 1.0, input_scale: 0.5}
+    - {alpha: 0.1, input_scale: 0.8}
+    - {alpha: 1.0, input_scale: 0.8}
+    - {alpha: 0.1, input_scale: 1.1}
+    - {alpha: 1.0, input_scale: 1.1}
+  qrc_candidates:
+    - {alpha: 0.1, input_scale: 0.5, layers: 1}
+    - {alpha: 1.0, input_scale: 0.5, layers: 1}
+    - {alpha: 0.1, input_scale: 0.5, layers: 2}
+    - {alpha: 1.0, input_scale: 0.8, layers: 1}
+    - {alpha: 0.1, input_scale: 0.8, layers: 2}
+    - {alpha: 1.0, input_scale: 1.1, layers: 2}
+
+crisis_periods:
+  Global financial crisis: [2008-09-01, 2009-06-30]
+  Covid shock: [2020-02-20, 2020-06-30]
+  Inflation and Ukraine shock: [2022-02-01, 2022-10-31]
+
+output:
+  run_dir: results/q2_study

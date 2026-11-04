@@ -1,17 +1,28 @@
 random_seed: 42
 
-window_size: 5
-scale_factor: 80.0
-ridge_alpha: 0.01
-
-train_split: 0.8
-
 data:
   financial:
     ticker: SPY
-    start: 2020-01-01
-    end: 2024-01-01
+    start: 2005-01-01
+    end: 2026-01-01
+    cache_path: data/spy_ohlc_2005_2025.csv
 
-  macro:
-    start: 2000-01-01
-    end: 2024-01-01
+target:
+  type: next_day_garman_klass_variance
+  model_scale: log_variance
+  variance_floor: 1.0e-12
+
+features:
+  lookback: 5
+
+evaluation:
+  initial_train_size: 1000
+  refit_every: 126
+
+models:
+  ridge_alpha: 1.0
+  input_scale: 0.8
+  qrc_layers: 2
+
+output:
+  run_dir: results/spy_gk_2005_2025
